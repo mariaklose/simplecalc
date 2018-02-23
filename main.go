@@ -12,12 +12,14 @@ func main() {
 	//1) Defining reader
 	var reader *bufio.Reader
 	reader = bufio.NewReader(os.Stdin)
+
 	//2) Asking user for operation
 	fmt.Println("Enter operation 1) sum 2) rest 3) multiplication 4) division")
 	//3) Reading operation from user
 	var operation string
 	operation, _ = reader.ReadString('\n')
 	operation = strings.TrimSpace(operation)
+
 	//4) Showing operation to the user
 	fmt.Println("operation is:", operation)
 	//5) Reading Operad1
@@ -40,6 +42,10 @@ func main() {
 	} else if operation == "rest" {
 		fmt.Println("rest result is:", rest(operand1, operand2))
 
+	} else if operation == "multiplication" {
+		fmt.Println("multiplication result is:", multiplication(operand1, operand2))
+	} else if operation == "division" {
+		fmt.Println("division result is:", division(operand1, operand2))
 	}
 }
 
@@ -47,6 +53,16 @@ func main() {
 func sum(operand1 float64, operand2 float64) float64 {
 	return operand1 + operand2
 }
+
 func rest(operand1 float64, operand2 float64) float64 {
 	return operand1 - operand2
+}
+
+func multiplication(operand1 float64, operand2 float64) float64 {
+	return operand1 * operand2
+
+}
+
+func division(operand1 float64, operand2 float64) float64 {
+	return operand1 / operand2
 }
